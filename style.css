@@ -6,10 +6,16 @@
     padding: 0;
     box-sizing: border-box;
 }
+*::selection {
+    color: none;
+    background: none;
+}
 
 /************************************** Utility Components ******************************************/
 :root {
     font-size: 62.5%;
+
+    --button-color: #0CA9B7;
 }
 
 
@@ -34,6 +40,15 @@ a:visited {
     text-decoration: none;
     color: black;
     font-size: 1.5rem;
+}
+
+button {
+    padding: 10px 25px;
+    background: var(--button-color);
+    border: 1px solid black;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
 }
 
 /******************************* NavBar / Logo *********************/
@@ -65,6 +80,7 @@ ul.header__main-nav--links {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    align-items: baseline;
 }
 
 ul.header__main-nav--links li {
@@ -116,6 +132,7 @@ ul.header__main-nav--links li a:active::after {
 
 
 
+
 .logo {
     display: flex;
     justify-content: center;
@@ -127,12 +144,14 @@ ul.header__main-nav--links li a:active::after {
     padding: 2px;
     margin: 15px;
     font-size: 2rem;
+    cursor: pointer;
 }
+
 .logo h1:hover {
     transform: rotate(360deg);
-    border: 5px solid white;
-    color: white;
-    background-color: black;
+    border: 5px solid rgba(255, 255, 255, 0);
+    color: black;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 /******************************* Content Section ************************/
@@ -149,8 +168,8 @@ section#content {
     box-shadow: 0px 0px 75px 0px rgba(0,0,0,1);
     background-color: white;
     padding: 30px;
-    margin-right: calc(15vw + 5.6vh);
-    margin-left: calc(10vw + 5vh);
+    margin-right: calc(25vw + 5.6vh);
+    margin-left: calc(20vw + 5vh);
 }
 
 .content__text--1 h1 {
@@ -170,14 +189,9 @@ section#content {
 .contact__section--para {
     font-size: calc(0.5rem + 1vw);
 }
-.contact__section button {
+
+button.contact {
     margin-top: calc(1vh + 00.66667vw);
-    padding: 10px 25px;
-    background: chartreuse;
-    border: 1px solid black;
-    border-radius: 20px;
-    outline: none;
-    cursor: pointer;
 }
 /*********************************** Media Queries ******************/
 
