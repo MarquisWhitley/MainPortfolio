@@ -18,6 +18,12 @@ btn.addEventListener("click", function() {
     document.querySelector(".content__text").style.backgroundColor = randomHex;
 })
 
+btn.addEventListener("click", function() {
+    const randomHex = getRandomHexColor();
+
+    document.querySelector(".contact").style.backgroundColor = randomHex;
+})
+
 // const hover = window.getComputedStyle(document.querySelector(".js__selector--logo"), ':hover').getPropertyValue('color')
 
 // btn.addEventListener("click", function() {

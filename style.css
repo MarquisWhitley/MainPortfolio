@@ -26,7 +26,6 @@ body {
     display: flex;
     flex-direction: column;
     background-color: whitesmoke;
-    height: 200vh;
 }
 
 /* List Items */
@@ -41,7 +40,7 @@ a:visited {
     color: black;
     font-size: 1.5rem;
 }
-
+/* Buttons */
 button {
     padding: 10px 25px;
     background: var(--button-color);
@@ -50,10 +49,30 @@ button {
     outline: none;
     cursor: pointer;
 }
+/* Content Section */
+section {
+    height: 100vh;
+    width: 100%;
+}
+
+/* Page Transition Button */
+.content__page--transition {
+    position: absolute;
+    height: 50px;
+    width: 25px;
+    bottom: 1%;
+    left: 49.5%;
+
+    border: 2px solid black;
+    border-radius: 50px;
+    background-color: transparent;
+}
+
 
 /******************************* NavBar / Logo *********************/
 
 .nav-bar {
+    position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -154,6 +173,33 @@ ul.header__main-nav--links li a:active::after {
     background-color: rgba(0, 0, 0, 0);
 }
 
+.logo h1:hover::after {
+    content: 'Click-Me';
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--button-color);
+    clip-path: polygon(0 75%, 100% 75%, 100% 25%, 50% 25%, 33% 0, 33% 25%, 0 25%);
+    height: calc(5vh + 1vw);
+    width: calc(5vw + 3vh);
+    font-size: calc(1rem + 0.45vw);
+    top: 50px;
+    left: 0px;
+    animation: click 0.5s ease-in;
+}
+
+@keyframes click {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 /******************************* Content Section ************************/
 
 section#content {
@@ -163,13 +209,18 @@ section#content {
     padding-top: 9vh;
 }
 
+section#content {
+    justify-content: center;
+}
+
 .content__text {
     border-radius: 20px;
     box-shadow: 0px 0px 75px 0px rgba(0,0,0,1);
     background-color: white;
     padding: 30px;
-    margin-right: calc(25vw + 5.6vh);
+    margin-right: calc(20vw + 5vh);
     margin-left: calc(20vw + 5vh);
+    margin-bottom: calc(5vw + 1vh);
 }
 
 .content__text--1 h1 {
@@ -198,6 +249,7 @@ button.contact {
 @media screen and (max-width: 630px) {
     header#header {
         position: absolute;
+        z-index: 2;
     }
 
     nav#header__main-nav {
@@ -206,7 +258,7 @@ button.contact {
         position: fixed;
         top: 0;
         right: -30rem;
-        background-color: var(--secondary-color);
+        background-color: white;
         text-align: center;
     }
 
@@ -221,7 +273,7 @@ button.contact {
         top: 2rem;
         right: 3rem;
         cursor: pointer;
-        background-color: var(--secondary-color);
+        background-color: white;
         padding: 1rem;
         border-radius: 50%;
 
@@ -300,5 +352,12 @@ button.contact {
     }
     .contact__section button {
         transform: scale(0.7);
+    }
+    .resume {
+        margin-left: 20px;
+    }
+
+    .logo h1:hover::after {
+        display: none;
     }
 }
